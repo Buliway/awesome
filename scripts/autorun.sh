@@ -14,7 +14,7 @@ run() {
 run /usr/bin/lxpolkit
 
 # Делать скрины экрана
-run knsip
+run ksnip
 
 # История буфера обмена
 run copyq
