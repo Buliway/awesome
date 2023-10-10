@@ -18,3 +18,9 @@ run ksnip
 
 # История буфера обмена
 run copyq
+
+# Настройки интернета в трее. Это network-manager-applet для настройки networkmanager
+run nm-applet
+
+# Визуально удаляет курсор когда он не нужен 
+run unclutter
