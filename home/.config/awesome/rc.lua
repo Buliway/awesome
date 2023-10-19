@@ -555,3 +555,24 @@ awful.spawn.with_shell("~/.config/awesome/scripts/autorun.sh")
 
 -- Обои рабочего стола
 awful.spawn.with_shell("nitrogen --restore")
+
+-- Запретить сворачиваться любому окну. Костыль, который дёргает значения туда назад. Не знаю как сделать иначе
+-- client.connect_signal("property::minimized", function(c)
+--     c.minimized = false
+-- end)
+
+-- Запретить автоматическое сворачивание определённого окна. В моём случае это игры.
+-- Костыль, который дёргает значения туда назад. Не знаю как сделать иначе
+-- У меня фильтрация происходит по имени окна. Если хочешь по классу, то замени c.name на c.class
+client.connect_signal("property::minimized", function(c)
+    local allowed_names = { "Apex Legends" }    -- Список имён окон, которым надо запретить сворачиваться.
+    
+    -- Тут первая переменная это индекс элемента списка, поэтому _, а вторая переменная это само значение элемента списка
+    for _, name in ipairs(allowed_names) do
+        if c.name == name then
+            c.minimized = false
+            break -- Выход из цикла после нахождения совпадения
+        end
+    end
+end)
+
