@@ -9,12 +9,15 @@ run() {
   fi
 }
 
+# Задать монитору DP-3 165 герц. ID монитора берётся из команды xrandr
+xrandr --output DP-3 --mode 1920x1080 --rate 165
+
 # Путь до polkit agent. Я выбрал lxsession
 # Нужен чтоб проги с правами админа запускать. Всплывающее окно будет с просьбой ввести пароль, например при запуске timeshift 
 run /usr/bin/lxpolkit
 
 # Делать скрины экрана
-run ksnip
+run org.ksnip.ksnip
 
 # История буфера обмена
 run copyq
