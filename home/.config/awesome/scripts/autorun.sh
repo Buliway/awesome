@@ -27,3 +27,6 @@ run nm-applet
 
 # Визуально удаляет курсор когда он не нужен 
 run unclutter
+
+# Запустить OpenTabletDriver. Дрова на граф планшет.
+run otd-daemon
